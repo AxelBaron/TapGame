@@ -119,13 +119,20 @@ h1 {
   padding: 10px;
   text-align: center;
   margin: auto;
+  border-radius: 5px;
 }
 
 .connectForm input{
   display: block;
   width: 100%;
+  padding: 10px 0;
 }
 
 .connectForm button{
   background: red;
+  padding: 10px 0;
+  border:none;
+  border-radius: 5px;
+  color:white;
+  width: 100%;
 }
