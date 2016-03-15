@@ -1,4 +1,5 @@
 var pseudo = '';
+var score = '';
 
 function start() {
 	//CSS pour changer d'écran.
@@ -57,4 +58,12 @@ function startGame(){
 function endGame(){
 	$('#tapParty').css('display','none');
 	$('#endGame').css('display','block');
+
+	// $.ajax({url: "addBdd.php", success: function(data){
+  //   console.log('Score ajouté à la BDD');
+  // }});
+
+	// $.ajax({url: "getScoresInBdd.php", success: function(data){
+  //   console.log('Score ajouté à la BDD');
+  // }});
 }
