@@ -17,10 +17,11 @@ $(document).ready(function(){
     setInterval(function(){
       if (stop=='') {
         compter = compter - 1;
-        $('#timer').html(compter);
+        $('#rules .timer').html(compter);
         if (compter <= 0) {
-          startGame();
           stop = 'stop';
+          $('#rules .timer').html('GO !');
+          startGame();
         }
       }
     }, 1000);
@@ -28,5 +29,25 @@ $(document).ready(function(){
 });
 
 function startGame(){
-  $('#timer').text('GO !');
+  $('#rules').css('display','none');
+  $('#tapParty').css('display','block');
+
+  var stop='';
+  var compter = 10;
+  setInterval(function(){
+    if (stop=='') {
+      compter = compter - 1;
+      $('#tapParty .timer').html(compter);
+      if (compter <= 0) {
+        stop = 'stop';
+        $('#tapParty .timer').css('display','none');
+        endGame();
+      }
+    }
+  }, 1000);
+}
+
+function endGame(){
+  $('#tapParty').css('display','none');
+  $('#endGame').css('display','block');
 }

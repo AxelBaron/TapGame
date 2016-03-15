@@ -140,3 +140,11 @@ h1 {
 #game{
   display: none;
 }
+
+#tapParty{
+  display: none;
+}
+
+#endGame{
+  display: none;
+}
