@@ -1,36 +1,33 @@
-$(document).ready(function(){
-	console.log("go!!");
-	$("#btn_go").click(function(){
+function start() {
+	//CSS pour changer d'écran.
+	$('#startScreen').css('display','none');
+	$('.app').css('background','none');
 
-		//CSS pour changer d'écran.
-		$('#startScreen').css('display','none');
-		$('.app').css('background','none');
+	//Scokage des données.
+	var pseudo = $('#pseudo').val();
 
-		//Scokage des données.
-		var pseudo = $('#pseudo').val();
+	//CSS nouvel écran
+	$('#game').css('display','block');
 
-		//CSS nouvel écran
-		$('#game').css('display','block');
+	var compter = 5;
+	var stop='';
+	setInterval(function(){
+		if (stop=='') {
+			compter = compter - 1;
+			$('#rules .timer').remove();
+			$('#rules .forJq').after('<h1 class="timer animated zoomIn"></h1>');
 
-		var compter = 5;
-		var stop='';
-		setInterval(function(){
-			if (stop=='') {
-				compter = compter - 1;
-				$('#rules .timer').remove();
-				$('#rules .forJq').after('<h1 class="timer animated zoomIn"></h1>');
-				
-				$('#rules .timer').html(compter);
-				
-				if (compter <= 0) {
-					stop = 'stop';
-					$('#rules .timer').html('GO !');
-					startGame();
-				}
+			$('#rules .timer').html(compter);
+
+			if (compter <= 0) {
+				stop = 'stop';
+				$('#rules .timer').html('GO !');
+				startGame();
 			}
-		}, 1000);
-	});
-});
+		}
+	}, 1000);
+	return false;
+}
 
 function startGame(){
 	$('#rules').css('display','none');
@@ -43,7 +40,7 @@ function startGame(){
 			compter = compter - 1;
 			$('#tapParty .timer').remove();
 			$('#tapParty .forJq').after('<h1 class="timer animated zoomIn"></h1>');
-			
+
 			$('#tapParty .timer').html(compter);
 			if (compter <= 0) {
 				stop = 'stop';
