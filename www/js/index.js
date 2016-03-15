@@ -1,14 +1,15 @@
+var pseudo = '';
+
 function start() {
 	//CSS pour changer d'écran.
 	$('#startScreen').css('display','none');
 	$('.app').css('background','none');
-
-	//Scokage des données.
-	var pseudo = $('#pseudo').val();
-
-	//CSS nouvel écran
 	$('#game').css('display','block');
 
+	//Modification des données
+	var pseudo = $('#pseudo').val();
+
+	//Boucle timer
 	var compter = 5;
 	var stop='';
 	setInterval(function(){
@@ -30,9 +31,11 @@ function start() {
 }
 
 function startGame(){
+	//CSS pour changer d'écran.
 	$('#rules').css('display','none');
 	$('#tapParty').css('display','block');
 
+	//Boucle timer
 	var stop='';
 	var compter = 10;
 	setInterval(function(){
