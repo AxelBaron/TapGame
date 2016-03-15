@@ -28,6 +28,5 @@ $(document).ready(function(){
 });
 
 function startGame(){
-  alert('startGame');
   $('#timer').text('GO !');
 }
