@@ -1,5 +1,5 @@
 var pseudo = '';
-var score = '';
+var score = 0;
 
 function start() {
 	//CSS pour changer d'écran.
@@ -8,7 +8,8 @@ function start() {
 	$('#game').css('display','block');
 
 	//Modification des données
-	var pseudo = $('#pseudo').val();
+	pseudo = $('#pseudo').val();
+	console.log('pseudo '+pseudo);
 
 	//Boucle timer
 	var compter = 5;
@@ -58,12 +59,53 @@ function startGame(){
 function endGame(){
 	$('#tapParty').css('display','none');
 	$('#endGame').css('display','block');
+	console.log("pseudo 2 "+pseudo);
+	console.log(score);
 
-	// $.ajax({url: "addBdd.php", success: function(data){
-  //   console.log('Score ajouté à la BDD');
-  // }});
+	//Insert in BDD
+	$.ajax({
+    type: "POST",
+    url: "http://195.83.128.55/~mim15a03/appli/addBdd.php",
+    data: "pseudo="+pseudo+"&score="+score,
+    dataType: "html",
+    success: function (data) {
+      console.log('Score ajouté à la BDD');
+			$('#votreScore').text(score);
+    }
+	});
 
-	// $.ajax({url: "getScoresInBdd.php", success: function(data){
-  //   console.log('Score ajouté à la BDD');
-  // }});
+	//SELECT BDD
+	$.ajax({
+    type: "POST",
+    url: "http://195.83.128.55/~mim15a03/appli/getScoresInBdd.php",
+    dataType: "json",
+    success: function (data) {
+      console.log('Select des scores de la BDD');
+			console.log(data);
+
+			var position = 0;
+			for (var i = 0; i < data.length; i++) {
+
+				if (i == 0) {
+					var ancienScore = 0;
+					console.log("1");
+				}else {
+					var Score = data[i-1];
+					console.log(ancienScore);
+					var ancienScore = data[i-1].score;
+					console.log("2");
+
+				}
+
+				if (ancienScore == data[i].score ) {
+					position = position;
+					console.log("3");
+				}else {
+					position = position + 1;
+					console.log("4");
+				}
+				$('#scoresTable tr:last').after('<tr><td>'+position+'</td><td>'+data[i].player+'</td><td>'+data[i].score+'</td></tr>');
+			}
+    }
+	});
 }
