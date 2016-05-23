@@ -1,6 +1,6 @@
 var pseudo = '';
 var score = 0;
-$finalScore = 0;
+var finalScore = 0;
 
 function start() {
 	//CSS pour changer d'écran.
@@ -53,7 +53,6 @@ function endGame(){
 	$('#tapParty').css('display','none');
 	$('#endGame').css('display','block');
 	$('#votreScore').text(finalScore);
-	console.log(score);
 
 	//Insert in BDD
 	$.ajax({
@@ -79,29 +78,23 @@ function displayScore(){
     url: "http://maximegatouillat.fr/appli/getScoresInBdd.php",
     dataType: "json",
     success: function (data) {
-
-      console.log('Select des scores de la BDD');
+			console.log('Affichage des scores');
 			var position = 0;
 			$('#scoreTable').html('<tr></tr>');
 			for (var i = 0; i < data.length; i++) {
 
 				if (i == 0) {
 					var ancienScore = 0;
-					console.log("1");
+
 				}else {
 					var Score = data[i-1];
-					console.log(ancienScore);
 					var ancienScore = data[i-1].score;
-					console.log("2");
-
 				}
 
 				if (ancienScore == data[i].score ) {
 					position = position;
-					console.log("3");
 				}else {
 					position = position + 1;
-					console.log("4");
 				}
 				$('#scoreTable tr:last').after('<tr><td>'+position+'</td><td>'+data[i].player+'</td><td>'+data[i].score+'</td></tr>');
 			}
