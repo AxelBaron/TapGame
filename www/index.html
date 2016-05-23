@@ -58,24 +58,25 @@
           <div id="endGame">
             <h1>C'est fini là arrête de taper !</h1>
             <p class='finalScore'>Ton score : <span id='votreScore'></span></p>
-            <p id='chargement'>Chargement du classement en cours ...</p>
-            <div class='classement'>
-              <p>Classement :</p>
-              <table>
-                <thead>
-                  <tr>
-                    <td>Position</td>
-                    <td>Joueur</td>
-                    <td>Score</td>
-                  </tr>
-                </thead>
-                <tbody id='scoreTable'>
+            <p class='btnChoise'><button onclick="replay()"><img width="30" src="img/restart.png" alt="Rejouer" /></button>  <button onclick="displayScore()"><img width="30" src="img/trophies.png" alt="" /></button></p>
+            </div>
+          </div>
 
-                </tbody>
-              </table>
-              <p><button onclick='displayScore()'>Actualiser le classement</button></p>
-            </div>
-            </div>
+          <div id='classement'>
+            <h1>Classement :</h1>
+            <table>
+              <thead>
+                <tr>
+                  <td>Position</td>
+                  <td>Joueur</td>
+                  <td>Score</td>
+                </tr>
+              </thead>
+              <tbody id='scoreTable'>
+
+              </tbody>
+            </table>
+            <p><button class='finalScore' onclick='retour()'>Retour</button></p>
           </div>
         </div>
       <script type="text/javascript" src="jquery-1.11.3.min.js"></script>

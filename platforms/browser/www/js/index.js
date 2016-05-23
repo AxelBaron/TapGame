@@ -66,51 +66,55 @@ function endGame(){
 
     }
 	});
-
-	displayScore();
 }
 
 function displayScore(){
-	setTimeout(
+	$('#game').css('display','none');
+	$('#classement').css('display','block');
 
-  function()
-  {
-		$.ajax({
-	    type: "POST",
-	    url: "http://195.83.128.55/~mim15a03/appli/getScoresInBdd.php",
-	    dataType: "json",
-	    success: function (data) {
-	      console.log('Select des scores de la BDD');
-				console.log(data);
+	$.ajax({
+    type: "POST",
+    url: "http://195.83.128.55/~mim15a03/appli/getScoresInBdd.php",
+    dataType: "json",
+    success: function (data) {
+      console.log('Select des scores de la BDD');
+			console.log(data);
 
-				var position = 0;
-				$('#scoreTable').html('<tr></tr>');
-				for (var i = 0; i < data.length; i++) {
+			var position = 0;
+			$('#scoreTable').html('<tr></tr>');
+			for (var i = 0; i < data.length; i++) {
 
-					if (i == 0) {
-						var ancienScore = 0;
-						console.log("1");
-					}else {
-						var Score = data[i-1];
-						console.log(ancienScore);
-						var ancienScore = data[i-1].score;
-						console.log("2");
+				if (i == 0) {
+					var ancienScore = 0;
+					console.log("1");
+				}else {
+					var Score = data[i-1];
+					console.log(ancienScore);
+					var ancienScore = data[i-1].score;
+					console.log("2");
 
-					}
-
-					if (ancienScore == data[i].score ) {
-						position = position;
-						console.log("3");
-					}else {
-						position = position + 1;
-						console.log("4");
-					}
-					$('#scoreTable tr:last').after('<tr><td>'+position+'</td><td>'+data[i].player+'</td><td>'+data[i].score+'</td></tr>');
-					$('#chargement').css('display','none');
-					$('.classement').css('display','block');
 				}
-	    }
-		});
 
-  }, 2000);
+				if (ancienScore == data[i].score ) {
+					position = position;
+					console.log("3");
+				}else {
+					position = position + 1;
+					console.log("4");
+				}
+				$('#scoreTable tr:last').after('<tr><td>'+position+'</td><td>'+data[i].player+'</td><td>'+data[i].score+'</td></tr>');
+				$('#chargement').css('display','none');
+				$('.classement').css('display','block');
+			}
+    }
+	});
+}
+
+function replay(){
+	var test = 'test';
+}
+
+function retour() {
+	$('#classement').css('display','none');
+	$('#game').css('display','block');
 }
