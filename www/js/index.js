@@ -31,7 +31,7 @@ function startGame(){
 
 	//Boucle timer
 	var stop='';
-	var compter = 10;
+	var compter = 2;
 	setInterval(function(){
 		if (stop=='') {
 			compter = compter - 1;
@@ -58,12 +58,14 @@ function endGame(){
 	//Insert in BDD
 	$.ajax({
     type: "POST",
-    url: "http://195.83.128.55/~mim15a03/appli/addBdd.php",
+    url: "http://maximegatouillat.fr/appli/addBdd.php",
     data: "pseudo="+pseudo+"&score="+finalScore,
     dataType: "html",
     success: function (data) {
       console.log('Score ajouté à la BDD');
-
+    },
+    error: function(data) {
+    	console.log(data);
     }
 	});
 }
@@ -74,12 +76,11 @@ function displayScore(){
 
 	$.ajax({
     type: "POST",
-    url: "http://195.83.128.55/~mim15a03/appli/getScoresInBdd.php",
+    url: "http://maximegatouillat.fr/appli/getScoresInBdd.php",
     dataType: "json",
     success: function (data) {
-      console.log('Select des scores de la BDD');
-			console.log(data);
 
+      console.log('Select des scores de la BDD');
 			var position = 0;
 			$('#scoreTable').html('<tr></tr>');
 			for (var i = 0; i < data.length; i++) {
@@ -103,9 +104,12 @@ function displayScore(){
 					console.log("4");
 				}
 				$('#scoreTable tr:last').after('<tr><td>'+position+'</td><td>'+data[i].player+'</td><td>'+data[i].score+'</td></tr>');
-				$('#chargement').css('display','none');
-				$('.classement').css('display','block');
 			}
+			$('#chargement').css('display','none');
+			$('#classement').css('display','block');
+    },
+		error: function (data) {
+    	console.log(data);
     }
 	});
 }

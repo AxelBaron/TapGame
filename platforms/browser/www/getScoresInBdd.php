@@ -1,10 +1,9 @@
 <?php
   //connection
-  include("connectBdd.php");
+  require_once("connectBdd.php");
 
-  $sql="SELECT * FROM scores ORDER BY score DESC LIMIT 10";
+  $sql="SELECT * FROM scores ORDER BY score DESC LIMIT 20";
   $liste = $pdo->query($sql);
   $datas= $liste->fetchAll();
-  echo json_encode($datas);
-
+  json_encode($datas);
  ?>

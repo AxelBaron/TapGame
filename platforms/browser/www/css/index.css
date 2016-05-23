@@ -70,7 +70,7 @@ body {
 }
 
 h1 {
-    font-size:24px;
+    font-size:22px;
     font-weight:normal;
     margin:0px;
     overflow:visible;
@@ -172,7 +172,7 @@ h1 {
 #rules p{
   color: white;
   text-transform: initial;
-  font-size: 15px;
+  font-size: 14px;
   /* text-align: justify; */
   letter-spacing: 0.3px;
 }
@@ -198,6 +198,7 @@ h1 {
   border: none;
   color: white;
   width: 100%;
+  margin-bottom: 10px;
 }
 
 .btnChoise button{
@@ -205,7 +206,6 @@ h1 {
 }
 
 table{
-  border: 1px solid white;
   color: white;
   width: 100%;
   border-collapse: collapse;
@@ -217,6 +217,10 @@ thead{
 }
 
 td{
-  border-bottom: 1px solid rgba(0,0,0,0);
+  border-bottom: 1px solid grey;
   padding: 3px;
+}
+
+#chargement{
+  color: white;
 }

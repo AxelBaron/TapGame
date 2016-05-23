@@ -30,8 +30,8 @@
       <link rel="stylesheet" type="text/css" href="css/animate.min.css">
       <title>Tap Game</title>
     </head>
-    <body>
-      <div class="app" id='touchZone'>
+    <body id='touchZone'>
+      <div class="app" >
         <div id="startScreen">
           <h1>Tap Game</h1>
           <form class="connectForm" onsubmit="return start()">
@@ -43,7 +43,7 @@
         <div id="game">
           <div id="rules">
             <h1 id='recupPseudo'></h1>
-            <p>Tapotte le plus de fois possible l'écran pendant 10 secondes. Prêt à faire péter le compteur ?</p>
+            <p>Tapotte le plus de fois possible l'écran pendant 10 secondes. Prêt(e) à faire péter le compteur ?</p>
             <p><button class='btn_go btn_start' onclick="startGame()">Go !</button></p>
           </div>
 
@@ -56,14 +56,15 @@
           </div>
 
           <div id="endGame">
-            <h1>C'est fini là arrête de taper !</h1>
-            <p class='finalScore'>Ton score : <span id='votreScore'></span></p>
+            <h1>C'est fini là arrête de tapotter !</h1>
+            <h1 class='finalScore'>Ton score : <span id='votreScore'></span></h1>
             <p class='btnChoise'><button onclick="replay()"><img width="30" src="img/restart.png" alt="Rejouer" /></button>  <button onclick="displayScore()"><img width="30" src="img/trophies.png" alt="" /></button></p>
             </div>
           </div>
 
           <div id='classement'>
             <h1>Classement :</h1>
+            <p id='chargement'>chargement en cours ...</p>
             <table>
               <thead>
                 <tr>
@@ -73,7 +74,6 @@
                 </tr>
               </thead>
               <tbody id='scoreTable'>
-
               </tbody>
             </table>
             <p><button class='finalScore' onclick='retour()'>Retour</button></p>
