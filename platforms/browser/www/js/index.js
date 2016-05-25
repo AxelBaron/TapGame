@@ -17,6 +17,7 @@ function start() {
 }
 
 function startGame(){
+	$("#touchZone").off("click");
 	score = 0;
 	finalScore =0;
 	//CSS pour changer d'écran.
@@ -33,7 +34,7 @@ function startGame(){
 
 	//Boucle timer
 	var stop='';
-	var compter = 2;
+	var compter = 10;
 	setInterval(function(){
 		if (stop=='') {
 			compter = compter - 1;
@@ -51,6 +52,7 @@ function startGame(){
 }
 
 function endGame(){
+	$("#touchZone").off("click");
 	finalScore = score;
 	$('#tapParty').css('display','none');
 	$('#endGame').css('display','block');
@@ -110,12 +112,11 @@ function displayScore(){
 }
 
 function replay(){
-	location.reload();
+	$('#endGame').css('display','none');
+	startGame();
 }
 
 function retour() {
 	$('#classement').css('display','none');
-$("#body *").removeAttr("id");
-
 	$('#game').css('display','block');
 }
