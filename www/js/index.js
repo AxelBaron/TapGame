@@ -76,8 +76,9 @@ function endGame(){
 function displayScore(){
 	$('#game').css('display','none');
 
+	$('.logo_content').css('display','none');
 	$('.app').addClass('resetClassement');
-	$('#classement').addClass('resetClassementdeux');
+	//$('#classement').addClass('resetClassementdeux');
 
 	$('#classement').css('display','block');
 
@@ -122,8 +123,11 @@ function replay(){
 
 function retour() {
 	$('.app').removeClass('resetClassement');
-	$('#classement').removeClass('resetClassementdeux');
+	$('#app').removeClass('app');
+	$('#app').addClass('app');
 
+
+	$('.logo_content').css('display','block');
 	$('#classement').css('display','none');
 	$('#game').css('display','block');
 }

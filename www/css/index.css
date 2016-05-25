@@ -41,25 +41,17 @@ body {
     background-attachment:fixed;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:12px;
-    height:100%;
     margin:0px;
     padding:0px;
     text-transform:uppercase;
-    width:100%;
+    text-align: center;
 }
 
 /* Portrait layout (default) */
 .app {
-    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
-    position:absolute;             /* position in the center of the screen */
-    left:50%;
-    top:50%;
-    height:50px;                   /* text area height */
-    width:225px;                   /* text area width */
-    text-align:center;
-    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
-                                   /* offset horizontal: half of text area width */
+  width: 70%;
+  margin: auto;
+  margin-top: 50%;
 }
 
 /* Landscape layout (with min-width) */
@@ -176,7 +168,7 @@ h1 {
   color: white;
   text-transform: initial;
   font-size: 14px;
-  /* text-align: justify; */
+  text-align: center;
   letter-spacing: 0.3px;
 }
 
@@ -200,7 +192,6 @@ h1 {
   border-radius: 5px;
   border: none;
   color: white;
-  width: 100%;
   margin-bottom: 10px;
 }
 
@@ -229,10 +220,28 @@ td{
 }
 
 .resetClassement{
-  top: 30%;
+  margin-top: 20%;
   background: url(../img/trophies.png) no-repeat center top;
 }
 
 .resetClassementdeux{
   margin-top: -80px;
+}
+
+#startScreen{
+
+}
+
+.logo_content{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.trophy{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.width{
+  width: 100%;
 }

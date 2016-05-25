@@ -19,7 +19,7 @@
     specific language governing permissions and limitations
     under the License.
 -->
-<html>
+<html id='touchZone'>
     <head>
       <meta charset="utf-8" />
       <meta name="format-detection" content="telephone=no" />
@@ -30,8 +30,9 @@
       <link rel="stylesheet" type="text/css" href="css/animate.min.css">
       <title>Tap Game</title>
     </head>
-    <body id='touchZone'>
-      <div class="app">
+    <body>
+      <div id='app' class="app">
+        <div class='logo_content'><img src="img/logo.png" alt="logo"></div>
         <div id="startScreen">
           <h1>Tap Game</h1>
           <form class="connectForm" onsubmit="return start()">
@@ -63,6 +64,7 @@
           </div>
 
           <div id='classement'>
+            <div class="trophy"><img src="img/trophies.png" alt="trophies" /></div>
             <h1>Classement :</h1>
             <p id='chargement'>chargement en cours ...</p>
             <table>
@@ -76,7 +78,7 @@
               <tbody id='scoreTable'>
               </tbody>
             </table>
-            <p><button class='finalScore' onclick='retour()'>Retour</button></p>
+            <p><button class='finalScore width' onclick='retour()'>Retour</button></p>
           </div>
         </div>
       <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
