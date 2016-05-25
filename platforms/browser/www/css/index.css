@@ -245,3 +245,8 @@ td{
 .width{
   width: 100%;
 }
+
+.btnChoise button{
+  background-color: transparent;
+  border: none;
+}
