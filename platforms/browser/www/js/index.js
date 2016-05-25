@@ -17,6 +17,8 @@ function start() {
 }
 
 function startGame(){
+	score = 0;
+	finalScore =0;
 	//CSS pour changer d'écran.
 	$('#rules').css('display','none');
 	$('#tapParty').css('display','block');
@@ -24,7 +26,7 @@ function startGame(){
 	//On met un écouteur sur la div
 	$('#touchZone').on( "click", function() {
 		score = score + 1;
-  	console.log(score);
+		console.log(score);
 		$('#tapParty .tap').remove();
 		$('#tapParty .tapJq').after('<h1 class="tap animated jello">TAP !</h1>');
 	});
@@ -108,10 +110,12 @@ function displayScore(){
 }
 
 function replay(){
-	var test = 'test';
+	location.reload();
 }
 
 function retour() {
 	$('#classement').css('display','none');
+$("#body *").removeAttr("id");
+
 	$('#game').css('display','block');
 }
