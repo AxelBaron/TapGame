@@ -75,6 +75,10 @@ function endGame(){
 
 function displayScore(){
 	$('#game').css('display','none');
+
+	$('.app').addClass('resetClassement');
+	$('#classement').addClass('resetClassementdeux');
+
 	$('#classement').css('display','block');
 
 	$.ajax({
@@ -117,6 +121,9 @@ function replay(){
 }
 
 function retour() {
+	$('.app').removeClass('resetClassement');
+	$('#classement').removeClass('resetClassementdeux');
+
 	$('#classement').css('display','none');
 	$('#game').css('display','block');
 }
